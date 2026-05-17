@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class VehiculoResponseDTO {
-    private Long idVehiculo;
+    private Long id;
     private String vin;
     private Long idModelo;
     private String condicion;

@@ -1,34 +1,31 @@
 package com.automaster.msstock.model;
 
 import jakarta.persistence.*;
-        import jakarta.validation.constraints.*;
-        import lombok.Data;
+import lombok.Data;
 
 @Entity
 @Table(name = "vehiculos")
 @Data
 public class Vehiculo {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idVehiculo;
+    private Long id;
 
-    @NotBlank(message = "El VIN (número de chasis) es obligatorio")
-    @Column(unique = true)
+    @Column(nullable = false, unique = true, length = 17)
     private String vin;
 
-    @NotNull(message = "El ID del modelo es obligatorio")
-    private Long idModelo;
+    @Column(name = "id_modelo", nullable = false)
+    private Long idModelo; // No hay @ManyToOne aquí porque pertenece a otro microservicio
 
-    @NotBlank(message = "La condición es obligatoria")
-    private String condicion;
+    @Column(nullable = false)
+    private String condicion; // "Nuevo" o "Usado"
 
-    @Min(value = 0, message = "El kilometraje no puede ser negativo")
+    @Column(nullable = false)
     private Integer kilometraje;
 
-    @Positive(message = "El precio de venta debe ser mayor a 0")
+    @Column(name = "precio_venta", nullable = false)
     private Double precioVenta;
 
-    @NotBlank(message = "El estado de disponibilidad es obligatorio")
-    private String estadoDisponibilidad;
+    @Column(name = "estado_disponibilidad", nullable = false)
+    private String estadoDisponibilidad; // "Disponible", "Reservado", "Vendido"
 }

@@ -7,20 +7,20 @@ import lombok.Data;
 public class VehiculoRequestDTO {
 
     @NotBlank(message = "El VIN es obligatorio")
+    @Size(min = 17, max = 17, message = "El VIN debe tener exactamente 17 caracteres")
     private String vin;
 
     @NotNull(message = "El ID del modelo es obligatorio")
     private Long idModelo;
 
-    @NotBlank(message = "La condición (Nuevo/Usado) es obligatoria")
+    @NotBlank(message = "La condición es obligatoria (Nuevo o Usado)")
     private String condicion;
 
+    @NotNull(message = "El kilometraje es obligatorio")
     @Min(value = 0, message = "El kilometraje no puede ser negativo")
     private Integer kilometraje;
 
-    @Positive(message = "El precio de venta debe ser mayor a 0")
+    @NotNull(message = "El precio de venta es obligatorio")
+    @Positive(message = "El precio debe ser mayor a cero")
     private Double precioVenta;
-
-    @NotBlank(message = "El estado es obligatorio")
-    private String estadoDisponibilidad;
 }
