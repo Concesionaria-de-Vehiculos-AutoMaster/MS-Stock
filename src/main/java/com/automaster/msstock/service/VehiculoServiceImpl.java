@@ -4,6 +4,7 @@ import com.automaster.msstock.dto.VehiculoRequestDTO;
 import com.automaster.msstock.dto.VehiculoResponseDTO;
 import com.automaster.msstock.model.Vehiculo;
 import com.automaster.msstock.repository.VehiculoRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.automaster.msstock.client.ModeloClient;
@@ -13,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class VehiculoServiceImpl implements VehiculoService {
 

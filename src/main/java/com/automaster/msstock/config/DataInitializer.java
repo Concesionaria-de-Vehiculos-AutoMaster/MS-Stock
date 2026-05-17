@@ -2,10 +2,11 @@ package com.automaster.msstock.config;
 
 import com.automaster.msstock.model.Vehiculo;
 import com.automaster.msstock.repository.VehiculoRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
+@Slf4j
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -24,7 +25,7 @@ public class DataInitializer implements CommandLineRunner {
             v1.setEstadoDisponibilidad("Disponible");
 
             vehiculoRepository.save(v1);
-            System.out.println("Datos iniciales de MS-Stock cargados correctamente.");
+            log.info("Datos iniciales de MS-Stock cargados correctamente.");
         }
     }
 }
